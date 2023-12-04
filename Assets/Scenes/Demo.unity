@@ -45461,8 +45461,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 259439815
-  m_SortingLayer: 4
+  m_SortingLayerID: 1857842275
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bacb697df678f4a33b3a91a62402c0bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -45505,8 +45505,10 @@ MonoBehaviour:
   maxHealth: 100
   deathEffect: {fileID: 8989773327621322547, guid: 62ef4030857abc3419d167eea4c6c4f3, type: 3}
   timer: 0.1
+  damage: 20
   knockBackForceX: 50
   knockBackForceY: 100
+  player: {fileID: 2012312801}
 --- !u!114 &1883635651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45576,6 +45578,8 @@ GameObject:
   - component: {fileID: 2012312803}
   - component: {fileID: 2012312805}
   - component: {fileID: 2012312804}
+  - component: {fileID: 2012312806}
+  - component: {fileID: 2012312807}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -45748,3 +45752,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &2012312806
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012312799}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0045375824, y: -0.6922022}
+  m_Size: {x: 0.49368668, y: 0.63487536}
+  m_Direction: 0
+--- !u!114 &2012312807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012312799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418e778a349141348a8f944efca07f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100

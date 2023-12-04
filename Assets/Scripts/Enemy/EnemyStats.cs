@@ -8,6 +8,7 @@ public class EnemyStats : MonoBehaviour
     private float currentHealth;
     public GameObject deathEffect;
     public float timer;
+    public float damage;
 
     HitEffect effect;
     Rigidbody2D rb;
