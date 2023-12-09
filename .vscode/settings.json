@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "HasansLife.sln"
+    "dotnet.defaultSolution": "HasansLife.sln",
+    "dotnet.preferCSharpExtension": true
 }
