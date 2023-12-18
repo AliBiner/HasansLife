@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Inventory
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Character
   - Enemy
   - NextLevel
-  - 
+  - Inventory
   - 
   - 
   - 
@@ -62,4 +63,7 @@ TagManager:
     locked: 0
   - name: NextLevel
     uniqueID: 1872862433
+    locked: 0
+  - name: Inventory
+    uniqueID: 2865638507
     locked: 0

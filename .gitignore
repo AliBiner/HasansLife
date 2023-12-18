@@ -86,6 +86,7 @@ crashlytics-build.properties
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+/Assets/RPG Item Icons/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data

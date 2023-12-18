@@ -11,12 +11,16 @@ public class PlayerHealth : MonoBehaviour
     bool isImmune;
     public float immunityTime;
     Animator anim;
+    public Inventory playerInventory;
+    InventoryUi inventoryUi;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         anim=GetComponent<Animator>();
+        inventoryUi = GetComponent<InventoryUi>();
+        
     }
 
     // Update is called once per frame
@@ -42,11 +46,24 @@ public class PlayerHealth : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+       
+        if (collision.CompareTag("Inventory"))
+        {
+            WorldItem worldItem = collision.GetComponent<WorldItem>();
+            playerInventory.AddItem(worldItem.item, worldItem.amount);
+            Destroy(worldItem.gameObject);
+            inventoryUi.UpdateDisplay();
+
+        }
     }
 
     IEnumerator Immunity() { 
         isImmune = true;
         yield return new WaitForSeconds(immunityTime);
         isImmune=false;
+    }
+
+    public void TakeHealth(int health) {
+        currentHealth += health;
     }
 }
