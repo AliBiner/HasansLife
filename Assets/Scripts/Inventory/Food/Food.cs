@@ -12,7 +12,6 @@ public class Food : Item
     public override void UseEffect()
     {
         FindObjectOfType<PlayerHealth>().TakeHealth(health);
-       
-        
+
     }
 }

@@ -28,10 +28,23 @@ public class Inventory : ScriptableObject
     }
     public void UseItem(int index) {
       
-        if (itemSlot[index].slotId != 0)
+        if (itemSlot[index].slotId != 0 && itemSlot[index].amount>=0)
         {
-          
+            
             itemSlot[index].item.UseEffect();
+            itemSlot[index].amount -= 1;
+
         }
+        if (itemSlot[index].amount==0)
+        {
+            
+            FindObjectOfType<InventoryUi>().DeleteDisplay(index);
+            itemSlot[index].slotId = 0;
+            itemSlot[index].item = null;
+            
+            
+            
+        }
+
     }
 }

@@ -65,5 +65,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeHealth(int health) {
         currentHealth += health;
+        inventoryUi.UpdateDisplay();
     }
 }
