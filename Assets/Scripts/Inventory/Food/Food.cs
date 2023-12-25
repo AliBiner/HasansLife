@@ -8,10 +8,9 @@ public class Food : Item
     public ItemType itemType = ItemType.Food;
     public int health;
     public int mana;
-    public PlayerHealth playerHealth;
     public override void UseEffect()
     {
         FindObjectOfType<PlayerHealth>().TakeHealth(health);
-
+        FindObjectOfType<PlayerController>().TakeMana(mana);
     }
 }

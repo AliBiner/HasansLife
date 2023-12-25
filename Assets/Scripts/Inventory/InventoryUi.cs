@@ -73,11 +73,6 @@ public class InventoryUi : MonoBehaviour
                 slotobj[i].GetComponentInChildren<Text>().text = playerInventory.itemSlot[i].amount.ToString();
 
             }
-           
-            
-            
-           
-
         }
 
        
@@ -89,8 +84,6 @@ public class InventoryUi : MonoBehaviour
         Color color = slotobj[index].GetComponent<Image>().color;
         color.a = 0;
         slotobj[index].GetComponent<Image>().color = color;
-
-
     }
 
  

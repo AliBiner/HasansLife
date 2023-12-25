@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Inventory
+  - NextLevel
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Enemy
   - NextLevel
   - Inventory
-  - 
+  - Trap
   - 
   - 
   - 
@@ -66,4 +67,7 @@ TagManager:
     locked: 0
   - name: Inventory
     uniqueID: 2865638507
+    locked: 0
+  - name: Trap
+    uniqueID: 3831316195
     locked: 0

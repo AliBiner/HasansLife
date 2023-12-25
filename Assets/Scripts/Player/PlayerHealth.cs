@@ -1,49 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth;
-    float currentHealth;
     public Image healthBar;
     bool isImmune;
     public float immunityTime;
     Animator anim;
     public Inventory playerInventory;
     InventoryUi inventoryUi;
+    public GameObject transferObject;
+    //float currentHelath;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
         anim=GetComponent<Animator>();
         inventoryUi = GetComponent<InventoryUi>();
-        
+        //if (PlayerStats.instance!=null)
+        //{
+        //        PlayerStats.instance.health = maxHealth;
+        //}
+        PlayerStats.instance.health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth >= maxHealth)
+        if (PlayerStats.instance.health >= maxHealth)
         {
-            currentHealth = maxHealth;
+            PlayerStats.instance.health = maxHealth;
         }
-        healthBar.fillAmount = currentHealth/100;
+        healthBar.fillAmount = PlayerStats.instance.health / 100;
+        if (PlayerStats.instance.health<=0)
+        {
+            Destroy(gameObject);
+            Destroy(PlayerStats.instance.gameManager);
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && !isImmune)
+           if (collision.CompareTag("Enemy") && !isImmune)
         {
-            currentHealth -= collision.GetComponent<EnemyStats>().damage;
+            PlayerStats.instance.health -= collision.GetComponent<EnemyStats>().damage;
             StartCoroutine(Immunity());
             anim.SetTrigger("Hit");
-            if (currentHealth<=0)
+            if (PlayerStats.instance.health <= 0)
             {
-                currentHealth = 0;
+                PlayerStats.instance.health = 0;
                 Destroy(gameObject);
+                Destroy(PlayerStats.instance.gameManager);
+                SceneManager.LoadScene(0,LoadSceneMode.Single);
             }
         }
        
@@ -55,6 +68,7 @@ public class PlayerHealth : MonoBehaviour
             inventoryUi.UpdateDisplay();
 
         }
+       
     }
 
     IEnumerator Immunity() { 
@@ -64,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void TakeHealth(int health) {
-        currentHealth += health;
+        PlayerStats.instance.health += health;
         inventoryUi.UpdateDisplay();
     }
 }
