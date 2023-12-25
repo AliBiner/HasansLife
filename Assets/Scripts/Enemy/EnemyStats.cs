@@ -13,13 +13,14 @@ public class EnemyStats : MonoBehaviour
     HitEffect effect;
     Rigidbody2D rb;
     public float knockBackForceX, knockBackForceY;
-    public Transform player;
+    Transform player;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         effect = GetComponent<HitEffect>();
         rb = GetComponent<Rigidbody2D>();
+        player = PlayerStats.instance.transform;
     }
 
     // Update is called once per frame

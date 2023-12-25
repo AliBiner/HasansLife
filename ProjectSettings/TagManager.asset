@@ -62,12 +62,12 @@ TagManager:
   - name: UI
     uniqueID: 2038041527
     locked: 0
-  - name: NextLevel
-    uniqueID: 1872862433
-    locked: 0
   - name: Inventory
     uniqueID: 2865638507
     locked: 0
   - name: Trap
     uniqueID: 3831316195
+    locked: 0
+  - name: NextLevel
+    uniqueID: 1872862433
     locked: 0
